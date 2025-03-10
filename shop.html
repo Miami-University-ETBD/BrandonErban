@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Green Earth Shop - The best place to buy eco-friendly, air-purifying plants for your home and garden.">
-    <title>Shop- Green Earth</title>
+    <title>Shop - Green Earth</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function submitPlantSuggestion() {
+            let plantName = document.getElementById('plant-name').value;
+            let plantReason = document.getElementById('plant-reason').value;
+            if (plantName && plantReason) {
+                alert(`Thank you for suggesting ${plantName}! We will consider adding it to our collection.`);
+                document.getElementById('plant-form').reset();
+            } else {
+                alert('Please fill in both fields before submitting.');
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -24,23 +36,19 @@
         <div class="content">
             <section id="shop">
                 <h2>Browse Our Plant Collection</h2>
-                <p>At Green Earth, we offer a variety of plants for every need. From air-purifying houseplants to medicinal herbs, our carefully curated collection ensure that you get the best quality value. Whether you're an experienced gardener or just starting, our shop has something for everyone.</p>
-
-                <p><strong>Shop with confidence</strong> knowing that every plant is chosen with care. Our plants are handpicked from sustainable sources, ensuring that you are not only improving your environment but also contributing to a healthier planet. Choose from our wide range of options and find the perfect plant for your home, office, or garden.</p>
-
+                <img src="https://www.freepik.com/premium-photo/aloe-brevifolia-succulent-snake-plant_2493812.htm" alt="Aloe and Snake Plant" width="400">
+                <p>At Green Earth, we offer a variety of plants for every need. From air-purifying houseplants to medicinal herbs, our carefully curated collection ensures that you get the best quality value.</p>
                 <h3>Top Sellers</h3>
                 <ul>
-                    <li><strong>Aloe Vera:</strong> A popular choice for its lovely healing properties against sun burns.</li>
-                    <li><strong>Lavender:</strong> Known for its calming scent and stress-relief properties.</li>
-                    <li><strong>Snake Plant:</strong> A low-maintenance air purifier that thrives in almost any environment.</li>
+                    <li><strong>Aloe Vera:</strong> A popular choice for its healing properties.</li>
+                    <li><strong>Lavender:</strong> Known for its calming scent.</li>
+                    <li><strong>Snake Plant:</strong> A low-maintenance air purifier.</li>
                 </ul>
-
-                <h3>Why Choose Us? </h3>
-                <p> We at Green Earth focus on high-quality plants that not only beautify your space but also improve your health. <em>Our mission is to bring the healing power of plants into every space.</em></p>
             </section>
 
             <section id="plant-list">
-                <h2> Our Plant Offerings</h2>
+                <h2>Our Plant Offerings</h2>
+                <img src="https://images.fineartamerica.com/images-medium-large-5/close-up-of-lavender-cynthia-woods.jpg" alt="Close-up of Lavender" width="300">
                 <table>
                     <tr>
                         <th>Plant</th>
@@ -74,15 +82,27 @@
                     </tr>
                 </table>
             </section>
+
+            <section id="plant-suggestion">
+                <h2>Suggest a New Plant</h2>
+                <form id="plant-form">
+                    <label for="plant-name">Plant Name:</label>
+                    <input type="text" id="plant-name" name="plant-name" required>
+                    <label for="plant-reason">Why do you want this plant?</label>
+                    <textarea id="plant-reason" name="plant-reason" required></textarea>
+                    <button type="button" onclick="submitPlantSuggestion()">Submit Suggestion</button>
+                </form>
+            </section>
         </div>
 
         <aside>
             <h2>Quick Tips for Plant Care</h2>
             <ul>
-                <li><strong>Water regularly:</strong> Most plants need water every 1-2 weeks, depending on their size.</li>
-                <li><strong>Place in the right light:</strong> Ensure your plant gets the right amount of sunlight. Some need bright light, while others thrive in low light.</li>
-                <li><strong>Use good soil:</strong> Healthy soil is key to plant growth. Make sure to use nutrient-rich soil for your plants.</li>
+                <li><strong>Water regularly:</strong> Most plants need water every 1-2 weeks.</li>
+                <li><strong>Place in the right light:</strong> Ensure your plant gets the right amount of sunlight.</li>
+                <li><strong>Use good soil:</strong> Healthy soil is key to plant growth.</li>
             </ul>
+            <p>For more tips and tricks, visit <a href="https://thegardeningdad.com/" target="_blank">The Gardening Dad</a>.</p>
         </aside>
     </div>
 
