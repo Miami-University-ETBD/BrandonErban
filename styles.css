@@ -135,3 +135,26 @@ button, .shop-button {
 button:hover, .shop-button:hover {
     background-color: #2c6b3e;
 }
+
+/*Image Styling*/
+img {
+    max-width: 100%; /*Responsive images*/
+    height: auto;
+    display:block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2); /*Subtle shadow effect*/  
+}
+
+/*Specific styling for product images*/
+#shop img, #plant-list img {
+    max-width: 400px;
+    border: 2px solid #3a7d44; /*Medium green border*/
+    padding: 5px;
+}
+
+/*Hover Effect for Images*/
+img:hover {
+    transform: scale(1.05); /*Scale image to 110% on hover*/
+    transition: transform 0.3s ease-in-out;
+}
