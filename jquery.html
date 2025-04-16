@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Earth - jQuery Effects</title>
+  
+  <!-- jQuery Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+  <!-- jQuery Code -->
+  <script>
+    $(document).ready(function(){
+      // Toggle Plant Facts Section
+      $("#toggleFacts").click(function(){
+        $("#plantFacts h1").toggle();
+      });
+      
+      // Promo Code Reveal (Slide Down / Stop)
+      $("#flip").click(function(){
+        $("#panel").slideDown(5000); 
+      });
+      $("#stop").click(function(){
+        $("#panel").stop(); 
+      });
+      
+      // Plant Growth Animation (FadeIn)
+      $("#growPlant").click(function(){
+        $("#div1").fadeIn();          // Seedling fades in instantly
+        $("#div2").fadeIn("slow");      // Growing stage fades in slowly
+        $("#div3").fadeIn(3000);        // Mature plant fades in over 3 seconds
+      });
+    });
+  </script>
+  
+  <!-- CSS Styling -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    /* Navigation Bar Styling */
+    nav {
+      background-color: #388E3C;
+      text-align: center;
+      padding: 15px 0;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+    nav a:hover {
+      color: #FFEB3B;
+    }
+    
+    /* Section Styling */
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    h2 {
+      text-align: center;
+      color: #2E7D32;
+    }
+    
+    /* Toggle Plant Facts Section */
+    #plantFacts h1 {
+      text-align: center;
+      font-size: 20px;
+      color: #388E3C;
+      margin: 10px 0;
+    }
+    
+    /* Promo Code Panel */
+    #panel, #flip, #stop {
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      border: solid 1px #388E3C;
+      border-radius: 3px;
+      display: inline-block;
+      margin: 5px;
+    }
+    #panel {
+      display: none; /* Hidden initially */
+      background-color: #d0f5d2;
+      padding: 20px;
+      font-size: 22px;
+      border: 2px dashed #2E7D32;
+      width: 80%;
+      margin-top: 10px;
+    }
+    
+    /* Plant Growth Animation Section */
+    .plant-info {
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 10px auto;
+      color: white;
+      width: 200px;
+    }
+    #div1 {
+      display: none;
+      background-color: #8BC34A; /* Seedling green */
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+    #div2 {
+      display: none;
+      background-color: #4CAF50; /* Mid-stage plant green */
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+    }
+    #div3 {
+      display: none;
+      background-color: #2E7D32; /* Mature plant green */
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* General Button Styling */
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #388E3C;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    button:hover {
+      background-color: #2C6E2F;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="shop.html">Shop</a>
+    <a href="materialize.html">Materialize</a>
+  </nav>
+  
+  <!-- Section 1: Toggle Plant Facts -->
+  <section id="toggleFactsSection">
+    <h2>Toggle Plant Facts</h2>
+    <button id="toggleFacts">Toggle Plant Facts</button>
+    <div id="plantFacts">
+      <h1>Did you know some plants can naturally remove toxins like formaldehyde and benzene from indoor air?</h1>
+      <h1>Adding greenery to your space can reduce background noise and create a calming environment.</h1>
+      <h1>Plants help cool cities by shading surfaces and releasing moisture through transpiration.</h1>
+      <h1>Many sustainable farming practices rely on companion planting, where certain plants protect each other from pests.</h1>
+    </div>
+  </section>
+  
+  <!-- Section 2: Promo Code Reveal -->
+  <section id="promoSection">
+    <h2>Unlock an exclusive Green Earth discount!</h2>
+    <button id="flip">Reveal Promo Code</button>
+    <button id="stop">Stop Reveal</button>
+    <div id="panel">
+      <h1>🌿 Use code <strong>GREEN15</strong> at checkout for 15% off your next plant!</h1>
+    </div>
+  </section>
+  
+  <!-- Section 3: Plant Growth Animation -->
+  <section id="growthSection">
+    <h2>Click the button to see the plant grow!</h2>
+    <button id="growPlant">Grow the Plant</button>
+    <div id="div1" class="plant-info">
+      🌱 Seedling Stage (small sprout)
+    </div>
+    <div id="div2" class="plant-info">
+      🌿 Growing Stage (mid-size plant)
+    </div>
+    <div id="div3" class="plant-info">
+      🌳 Mature Plant Stage (fully grown)
+    </div>
+  </section>
+  
+</body>
+</html>
