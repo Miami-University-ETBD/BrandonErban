@@ -10,12 +10,33 @@
         function submitPlantSuggestion() {
             let plantName = document.getElementById('plant-name').value;
             let plantReason = document.getElementById('plant-reason').value;
+    
             if (plantName && plantReason) {
-                alert(`Thank you for suggesting ${plantName}! We will consider adding it to our collection.`);
+                // Create a new list item
+                const suggestionItem = document.createElement('li');
+                suggestionItem.textContent = `${plantName}: ${plantReason}`;
+    
+                // Append the new suggestion to the list
+                document.getElementById('suggestions').appendChild(suggestionItem);
+    
+                // Reset the form
                 document.getElementById('plant-form').reset();
+    
+                alert(`Thank you for suggesting ${plantName}! We will consider adding it to our collection.`);
             } else {
                 alert('Please fill in both fields before submitting.');
             }
+        }
+    </script>
+    <script>
+        function addToCart(plantName) {
+            alert(`${plantName} has been added to your cart!`);
+            // Add logic here to update the cart (e.g., store in localStorage or send to a server)
+        }
+    
+        function addToWishlist(plantName) {
+            alert(`${plantName} has been added to your wishlist!`);
+            // Add logic here to update the wishlist (e.g., store in localStorage or send to a server)
         }
     </script>
 </head>
@@ -27,17 +48,18 @@
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="learnmore.html">Learn More</a>
         <a href="aboutus.html">About Us</a>
         <a href="shop.html">Shop</a>
         <a href="materialize.html">Materialize</a>
+        <a href="jquery.html">jQuery Page</a>
+        <a href="bootstrap.html">Bootstrap Page</a>
     </nav>
 
     <div class="container">
         <div class="content">
             <section id="shop">
                 <h2>Browse Our Plant Collection</h2>
-                <img src="https://www.freepik.com/premium-photo/aloe-brevifolia-succulent-snake-plant_2493812.htm" alt="Aloe and Snake Plant" width="400">
+                <img src="https://balconygardenweb.b-cdn.net/wp-content/uploads/2023/10/Aloe-Vera-vs.-Snake-Plant-All-the-Differences2.jpg" alt="Aloe and Snake Plant" width="400">
                 <p>At Green Earth, we offer a variety of plants for every need. From air-purifying houseplants to medicinal herbs, our carefully curated collection ensures that you get the best quality value.</p>
                 <h3>Top Sellers</h3>
                 <ul>
@@ -55,31 +77,52 @@
                         <th>Plant</th>
                         <th>Price</th>
                         <th>Benefits</th>
+                        <th>Actions</th>
                     </tr>
                     <tr>
                         <td>Aloe Vera</td>
                         <td class="price low">$10.99</td>
                         <td>Healing properties, improves air quality</td>
+                        <td>
+                            <button class="btn btn-success " onclick="addToCart('Aloe Vera')">Add to Cart</button>
+                            <button class="btn btn-secondary" onclick="addToWishlist('Aloe Vera')">Add to Wishlist</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>Lavender</td>
                         <td class="price low">$8.99</td>
                         <td>Calming scent, stress relief</td>
-                    </tr>
+                        <td>
+                            <button class="btn btn-success" onclick="addToCart('Lavender')">Add to Cart</button>
+                            <button class="btn btn-secondary" onclick="addToWishlist('Lavender')">Add to Wishlist</button>
+                        </td>
+                        </tr>
                     <tr>
                         <td>Basil</td>
                         <td class="price medium">$6.99</td>
                         <td>Antioxidant, anti-inflammatory</td>
+                        <td>
+                            <button class="btn btn-success" onclick="addToCart('Basil')">Add to Cart</button>
+                            <button class="btn btn-secondary" onclick="addToWishlist('Basil')">Add to Wishlist</button>
+                            </td>
                     </tr>
                     <tr>
                         <td>Snake Plant</td>
                         <td class="price high">$12.99</td>
                         <td>Air purifier, produces oxygen at night</td>
+                        <td>
+                            <button class="btn btn-success" onclick="addToCart('Snake Plant')">Add to Cart</button>
+                            <button class="btn btn-secondary" onclick="addToWishlist('Snake Plant')">Add to Wishlist</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>Chamomile</td>
                         <td class="price low">$9.99</td>
                         <td>Promotes relaxation, aids digestion</td>
+                        <td>
+                            <button class="btn btn-success" onclick="addToCart('Chamomile')">Add to Cart</button>
+                            <button class="btn btn-secondary" onclick="addToWishlist('Chamomile')">Add to Wishlist</button>
+                        </td>
                     </tr>
                 </table>
             </section>
@@ -93,6 +136,12 @@
                     <textarea id="plant-reason" name="plant-reason" required></textarea>
                     <button type="button" onclick="submitPlantSuggestion()">Submit Suggestion</button>
                 </form>
+
+                <!--Div to display suggestions-->
+                <div id="suggesiton-list">
+                    <h3>Suggested Plants</h3>
+                    <ul id="suggestions"></ul>
+                </div>
             </section>
         </div>
 
